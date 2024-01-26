@@ -1,0 +1,57 @@
+body{
+background-color: #F3D7CA;
+font-family: "Roboto", sans-serif;
+}
+h2{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.result{
+    text-align: center;
+}
+.player{
+    width: auto;
+    height:350px ;
+    text-align: center;
+
+}
+#player1{
+    background-color: #FFFC9B;
+   
+   
+}
+#player2{
+    background-color: #B7E5B4;
+}
+
+.options {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 250px;
+}
+.Rock:hover,
+.Paper:hover,
+.Scissors:hover{
+    background-color:#FDE767 
+}
+.Rock,
+.Paper,
+.Scissors{
+ width: 500px;
+ height: 250px;
+ margin: 50px;
+ text-align: center;
+}
+.options img {
+    width: 150px;;
+    height: 150px; 
+    margin: 10px; 
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3); 
+    border-radius: 15px;
+   
+    
+}
+.options img:hover{
+    transform: scale(1.1);
+}

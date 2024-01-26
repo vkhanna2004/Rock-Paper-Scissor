@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .player {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="player" id="player1">
+        <h2>Player 1</h2>
+        <div class="options">
+            <button onclick="selectOption(1, 'rock')">Rock</button>
+            <button onclick="selectOption(1, 'paper')">Paper</button>
+            <button onclick="selectOption(1, 'scissors')">Scissors</button>
+        </div>
+    </div>
+
+    <div class="player" id="player2">
+        <h2>Player 2</h2>
+        <div class="options">
+            <button onclick="selectOption(2, 'rock')">Rock</button>
+            <button onclick="selectOption(2, 'paper')">Paper</button>
+            <button onclick="selectOption(2, 'scissors')">Scissors</button>
+        </div>
+    </div>
+
+    <div class="result" id="result">
+        <h2>Result</h2>
+        <p>Player 1 chose: <span id="player1Choice"></span></p>
+        <p>Player 2 chose: <span id="player2Choice"></span></p>
+        <p>Winner: <span id="winner"></span></p>
+        <p>Score: <span id="scorePlayer1">0</span> - <span id="scorePlayer2">0</span></p>
+    </div>
+
+    <script>
+        let scorePlayer1 = 0;
+        let scorePlayer2 = 0;
+
+        function selectOption(player, option) {
+            const playerChoiceElement = document.getElementById(`player${player}Choice`);
+            playerChoiceElement.textContent = option;
+
+            const player1Choice = document.getElementById('player1Choice').textContent;
+            const player2Choice = document.getElementById('player2Choice').textContent;
+
+            const resultElement = document.getElementById('winner');
+
+            if (player1Choice && player2Choice) {
+                if (player1Choice === player2Choice) {
+                    resultElement.textContent = 'It\'s a tie!';
+                } else if (
+                    (player1Choice === 'rock' && player2Choice === 'scissors') ||
+                    (player1Choice === 'paper' && player2Choice === 'rock') ||
+                    (player1Choice === 'scissors' && player2Choice === 'paper')
+                ) {
+                    resultElement.textContent = 'Player 1 wins!';
+                    scorePlayer1++;
+                } else {
+                    resultElement.textContent = 'Player 2 wins!';
+                    scorePlayer2++;
+                }
+
+                updateScore();
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('scorePlayer1').textContent = scorePlayer1;
+            document.getElementById('scorePlayer2').textContent = scorePlayer2;
+        }
+    </script>
+</body>
+</html>
