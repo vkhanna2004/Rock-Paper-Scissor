@@ -1,3 +1,4 @@
+
 body{
 background-color: #F3D7CA;
 font-family: "Roboto", sans-serif;
@@ -6,34 +7,14 @@ h2{
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.result{
+.result,.showChoices{
     text-align: center;
-}
-.player{
-    width: auto;
-    height:350px ;
-    text-align: center;
-
-}
-#player1{
-    background-color: #FFFC9B;
-   
-   
-}
-#player2{
-    background-color: #B7E5B4;
-}
-
-.options {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    height: 250px;
 }
 .Rock:hover,
 .Paper:hover,
 .Scissors:hover{
-    background-color:#FDE767 
+    background-color:#FDE767 ;
+    height: 220px;
 }
 .Rock,
 .Paper,
@@ -43,15 +24,19 @@ h2{
  margin: 50px;
  text-align: center;
 }
-.options img {
+#options {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 250px;
+}
+#options img {
     width: 150px;;
     height: 150px; 
     margin: 10px; 
     box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.3); 
-    border-radius: 15px;
-   
-    
+    border-radius: 15px;    
 }
-.options img:hover{
+#options img:hover{
     transform: scale(1.1);
 }

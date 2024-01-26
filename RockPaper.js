@@ -1,49 +1,47 @@
-const player1=document.getElementById("player1");
-const player2=document.getElementById("player2");
-
-const winner=document.createElement('p');//to show winner
-let playGame=true;
+const player=document.getElementById('options')
+const result=document.querySelector('.result')
+const choices=document.querySelector('.showChoices')
 
 
-
-
-if (playGame){
-    const player1Choice=getPlayerChoice(player1)
-    const player2Choice=getPlayerChoice(player2)
-    console.log(player1Choice);
-    console.log(player2Choice);
-    player1.addEventListener('click',function(e){
-        
-        if (e.target.tagName==='IMG'){
-        //    console.log(e.target.parentNode.className)
-        }
-        else{
-            // console.log(e.target.className);
-        }
-    })
+player.addEventListener('click',function(e){
+      
+if (e.target.tagName==='IMG'){
+    //player choice
+    const playerChoice = e.target.parentNode.className
+     console.log( playerChoice)
     
-}
-function getPlayerChoice(player, callback) {
-    player.addEventListener('click', function (e) {
-        let choice;
 
-        if (e.target.tagName === 'IMG') {
-          choice = e.target.parentNode.className;
-        } else {
-          choice = e.target.className;
-        }
-    
-        // Check if the callback is a function before invoking it
-        if (typeof callback === 'function') {
-          callback(choice);
-        }
-      });
+    //computer's choice
+    const choices = ['Rock', 'Paper', 'Scissors'];
+    const computerChoice = choices[Math.floor(Math.random() * 3)];
+    console.log(computerChoice);
+    showchoices(playerChoice,computerChoice)
+    getWinner(playerChoice,computerChoice)
+      }
+      
+})
+
+
+function showchoices(playerChoice,computerChoice){
+choices.innerHTML = `<p>You choosed ${playerChoice} and computer choosed ${computerChoice}</p>`;
+  console.log('inside Sc');
+} 
+
+function getWinner(playerChoice,computerChoice){
+  if (playerChoice===computerChoice){
+    result.innerHTML = `<h4>It's a TIE !!!</h4>`;
   }
 
+  else if ((playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+  (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+  (playerChoice === 'Scissors' && computerChoice === 'Paper')) 
+  {
+    result.innerHTML = `<h4>You WON !!!</h4>`;
+  }
 
-
-function getWinner(player1_choice,player2_choice){
-
+  else 
+  {
+    result.innerHTML = `<h4>You LOSE !!!</h4>`
 }
 
-
+}
